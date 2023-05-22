@@ -16,22 +16,23 @@ public class Produto {
 
 
 	public void descontoProduto() {
-		if(estoque > 10) {
-			preco *= 0.05;
+		if(estoque > 10 && estoque <= 50) {
+			preco -= 0.05 * preco ;
 		}else if(estoque > 50) {
-			preco *= 0.1;
+			preco -= 0.1 * preco;
 		}
 	}
 	
 	public void descontoProduto(int porcentagem) {
-		preco *= (porcentagem/100 + 1);
+		double desconto = preco * porcentagem/100;
+		preco -= desconto;
 	}
 	
 	public void descontoProduto(String cupom) {
 		if(cupom.equalsIgnoreCase("BEMVINDO")) {
-			preco *= 0.4;
+			preco -= 0.4 * preco;
 		}else if(cupom.equalsIgnoreCase("NERD")) {
-			preco *= 0.2;
+			preco -= 0.2 * preco;
 		}
 	}
 	

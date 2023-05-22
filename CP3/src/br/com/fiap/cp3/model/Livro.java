@@ -4,13 +4,13 @@ public class Livro extends Produto{
 	private String autor;
 	private String editora;
 	
-	public Livro(String nome, String descricao, double preco, String autor, String editora, int estoque){
+	public Livro(String nome, String descricao, double preco, int estoque, String autor, String editora) {
 		super(nome, descricao, preco, estoque);
 		this.autor = autor;
 		this.editora = editora;
 	}
-	
-	
+
+
 	@Override
 	public String toString() {
 		return "Livro"
