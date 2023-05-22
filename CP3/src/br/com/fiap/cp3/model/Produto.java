@@ -5,29 +5,34 @@ public class Produto {
 	private String descricao;
 	private double preco;
 	private int estoque;
-	public Produto(String nome, String descricao, double preco) {
+
+	
+	public Produto(String nome, String descricao, double preco, int estoque) {
 		this.nome = nome;
 		this.descricao = descricao;
 		this.preco = preco;
+		this.estoque = estoque;
 	}
-	
+
+
 	public void descontoProduto() {
-		if(estoque > 10) {
-			preco *= 0.05;
+		if(estoque > 10 && estoque <= 50) {
+			preco -= 0.05 * preco ;
 		}else if(estoque > 50) {
-			preco *= 0.1;
+			preco -= 0.1 * preco;
 		}
 	}
 	
 	public void descontoProduto(int porcentagem) {
-		preco *= (porcentagem/100 + 1);
+		double desconto = preco * porcentagem/100;
+		preco -= desconto;
 	}
 	
 	public void descontoProduto(String cupom) {
 		if(cupom.equalsIgnoreCase("BEMVINDO")) {
-			preco *= 0.4;
+			preco -= 0.4 * preco;
 		}else if(cupom.equalsIgnoreCase("NERD")) {
-			preco *= 0.2;
+			preco -= 0.2 * preco;
 		}
 	}
 	
@@ -49,4 +54,11 @@ public class Produto {
 	public void setPreco(double preco) {
 		this.preco = preco;
 	}
+	public int getEstoque() {
+		return estoque;
+	}
+	public void setEstoque(int estoque) {
+		this.estoque = estoque;
+	}
+	
 }
